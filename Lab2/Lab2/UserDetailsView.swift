@@ -18,8 +18,7 @@ struct UserDetailView: View {
                 AsyncImage(url: imageUrl) { phase in
                     switch phase {
                     case .empty:
-                        ProgressView()
-                            .frame(width: 120, height: 120)
+                        ProgressView().frame(width: 120, height: 120)
                     case .success(let image):
                         image
                             .resizable()
@@ -30,7 +29,6 @@ struct UserDetailView: View {
                     case .failure:
                         Image(systemName: "person.circle.fill")
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
                             .frame(width: 120, height: 120)
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.blue, lineWidth: 2))

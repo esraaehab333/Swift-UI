@@ -21,12 +21,13 @@ struct UserRow: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                default:
-                    Image(systemName: "person.crop.circle.fill")
+                case .failure:
+                    Image(systemName: "person.circle.fill")
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 44, height: 44)
-                        .foregroundColor(.blue)
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+               default:
+                    EmptyView()
                 }
             }
             
@@ -34,12 +35,12 @@ struct UserRow: View {
                 Text(user.name)
                     .font(.headline)
                     .foregroundColor(.primary)
-                Text("@\(user.username)")
+                Text(user.username)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
             Spacer()
         }
-        .padding(.vertical, 4)
+        .padding()
     }
 }
