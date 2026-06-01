@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ContentView: View {
     var body: some View {
         NavigationView{
@@ -18,7 +16,7 @@ struct ContentView: View {
                     UserDetailView(user: item)
                 } label: {
                     UserRow(user: item)
-                }.navigationTitle("Landmarks")
+                }.navigationTitle("Users")
                 
             }
         }

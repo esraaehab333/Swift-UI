@@ -30,9 +30,11 @@ struct UserDetailView: View {
                     case .failure:
                         Image(systemName: "person.circle.fill")
                             .resizable()
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 120, height: 120)
-                            .foregroundColor(.gray)
-                    @unknown default:
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.blue, lineWidth: 2))
+                   default:
                         EmptyView()
                     }
                 }
@@ -46,14 +48,11 @@ struct UserDetailView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color(.systemBackground))
                 .cornerRadius(12)
                 .padding(.horizontal)
             }
         }
         .navigationTitle(user.name)
-        .navigationBarTitleDisplayMode(.inline)
-        .background(Color(.systemGroupedBackground))
     }
 }
 
