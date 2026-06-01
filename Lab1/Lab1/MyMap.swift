@@ -15,7 +15,7 @@ struct MyMap: View {
     )
 
     var body: some View {
-        Map(coordinateRegion: $region)
+        Map(coordinateRegion: $region).ignoresSafeArea()
     }
 }
 
